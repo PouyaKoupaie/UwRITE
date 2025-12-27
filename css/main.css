@@ -1,0 +1,24 @@
+:root {
+    /* Brand Color */
+  --primary-color: #ff961d;
+  --brand-orange-hover: #E5851A;
+
+  --bg-main: #1c1c1c; /* black */
+  --bg-surface: #262626; /* Slightly lighter black for depth */
+  --text-main: #f3f3f3; /* grey used as text */
+  --text-muted: #a0a0a0;
+  --border: #333333;
+}
+body {
+  background-color: var(--bg-main);
+  color: var(--text-main);
+}
+@media (prefers-color-scheme: light) {
+  :root {
+    --bg-main: #fdfcfb; /* Soft white */
+    --bg-surface: #f3f3f3; /* grey - used for cards/inputs */
+    --text-main: #1c1c1c; /* black */
+    --text-muted: #666666;
+    --border: #e5e5e5;
+  }
+}
