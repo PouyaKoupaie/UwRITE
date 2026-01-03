@@ -3,7 +3,7 @@ export const routes = {
     linkLabel: "home",
     content: "Home Page",
   },
-  "posts": {
+  "/posts": {
     linkLabel: "posts",
     content: "Posts Page",
   },
@@ -32,10 +32,10 @@ export const renderNavLinks = () => {
 // function to register click handlers
 export const registerNavLinks = () => {
   nav.addEventListener("click", (e) => {
-    e.preventDefault();
-    const { href } = e.target;
-    history.pushState({}, "", href);
-    navigate(e); // pending implementation
+    if (e.target.matches(".nav-link")) {
+      e.preventDefault();
+      navigate(e);
+    }
   });
 };
 
@@ -50,8 +50,8 @@ export const navigate = e => {
 
 export const registerBrowserBackAndForth = () => {
     window.onpopstate = function (e) {
-        const route = location.pathname();
-        renderContent( route)
+        const route = location.pathname;
+        renderContent(route);
     }
 }
 
