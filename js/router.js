@@ -1,11 +1,9 @@
+import { Home } from "./views/Home.js";
+
 export const routes = {
   "/": {
     linkLabel: "home",
-    content: "Home Page",
-  },
-  "/posts": {
-    linkLabel: "posts",
-    content: "Posts Page",
+    view: Home,
   },
 };
 
@@ -39,23 +37,27 @@ export const registerNavLinks = () => {
   });
 };
 
-export const renderContent = (route) => (app.innerHTML = routes[route].content);
+const renderContent = (route) => {
+  const routeConfig = routes[route];
+  if (routeConfig) {
+    app.innerHTML = routeConfig.view();
+  }
+};
 
-export const navigate = e => {
-    const route =e.target.pathname;
-    // this is responsible for adding new path to the history stack
-    history.pushState({},"", route);
-    renderContent(route)
-}
+export const navigate = (e) => {
+  const route = e.target.pathname;
+  history.pushState({}, "", route);
+  renderContent(route);
+};
 
 export const registerBrowserBackAndForth = () => {
-    window.onpopstate = function (e) {
-        const route = location.pathname;
-        renderContent(route);
-    }
-}
-
-export const renderInitialPage = () =>{
+  window.onpopstate = function () {
     const route = location.pathname;
-    renderContent(route)
-}
+    renderContent(route);
+  };
+};
+
+export const renderInitialPage = () => {
+  const route = location.pathname;
+  renderContent(route);
+};

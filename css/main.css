@@ -8,6 +8,7 @@
   --text-main: #f3f3f3; /* grey used as text */
   --text-muted: #a0a0a0;
   --border: #333333;
+  --shadow:rgba(255, 255, 255, 0.25);
 }
 body {
   background-color: var(--bg-main);
@@ -20,5 +21,6 @@ body {
     --text-main: #1c1c1c; /* black */
     --text-muted: #666666;
     --border: #e5e5e5;
+    --shadow:rgba(0, 0, 0, 0.25);
   }
 }
