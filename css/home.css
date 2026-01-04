@@ -1,0 +1,45 @@
+.home {
+  max-width: 80%;
+  margin: 0 auto;
+  padding: 2rem 1.5rem;
+}
+
+.home h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--text-main);
+  margin-bottom: 2rem;
+  position: relative;
+}
+
+.home h1::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 4px;
+  background-color: var(--primary-color);
+  margin-top: 0.5rem;
+  border-radius: 2px;
+}
+
+.posts-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 1.5rem;
+}
+
+@media (max-width: 768px) {
+  .home {
+    padding: 1.5rem 1rem;
+  }
+
+  .home h1 {
+    font-size: 2rem;
+  }
+
+  .posts-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+}
+
